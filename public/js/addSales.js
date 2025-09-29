@@ -21,6 +21,7 @@ async function getProductName() {
         }
     });
     const text = await response.text(); // First get raw text
+    console.log(text)
     try {
       const result = JSON.parse(text); // Try parsing it
       return result;
@@ -154,6 +155,7 @@ addEventListener("DOMContentLoaded",()=>{
     const stockLevel = document.querySelector("#stockLevel");
     const stocknumber = document.querySelector("#stocknumber");
     const AddSalesBtn = document.querySelector("#AddSalesBtn");
+    const popupModal = document.querySelector("#popupModal");
 
     const startDate = document.querySelector("#startDate");
     const endDate = document.querySelector("#endDate");
@@ -244,7 +246,7 @@ addEventListener("DOMContentLoaded",()=>{
             let mapedData = `<option value="" selected>--select--</option>`;
             mapedData += result.message.map(items=>{
                 return `
-                <option value="${items.productunid}" >${items.productName}</option>
+                <option value="${items.productunid}" >${items.ProductName}</option>
                 `;
             }).join("");
             //console.log(mapedData);
@@ -289,6 +291,7 @@ exportSales.addEventListener("click",()=>{
                   const filename = `sales_data_${datestr} ${timestr}.xlsx`;
 				  // Trigger download of the Excel file
 				  XLSX.writeFile(wb, filename);
+
     }else{
 
     }
@@ -563,7 +566,7 @@ exportSales.addEventListener("click",()=>{
                             paymentSelector.value='';
                             mpesaPaymen.value='';
                             cashPayment.value='';
-                            paymentError='';
+                            paymentError.innerHTML='';
                             popupModal.classList.add('hidden');
 
                         },2500);

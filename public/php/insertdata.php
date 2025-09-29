@@ -40,9 +40,9 @@ if(isset($data['addStock']) && $data['addStock']== true){
     $nameQuery->execute();
     $nameResult =$nameQuery->get_result();
     $namedata = $nameResult->fetch_assoc();
-    $productName =$namedata['productName'];
+    $productName =$namedata['ProductName'];
     $ppPrice = floor($totalBuyingPrice/$quantity);
-    $stmt = $conn->prepare("INSERT INTO stocktable (`productUnid`, `productName`, `batchNumber`,`instock`, `totalQuantity`, `tbPrice`,`ppPiece`, `msPrice`,`expiryDate`)VALUES(?,?,?,?,?,?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO stocktable (`productUnid`, `ProductName`, `batchNumber`,`instock`, `totalQuantity`, `tbPrice`,`ppPiece`, `msPrice`,`expiryDate`)VALUES(?,?,?,?,?,?,?,?,?)");
     $stmt->bind_param("sssssssss",$productId,$productName,$batchNumber,$quantity,$quantity,$totalBuyingPrice,$ppPrice,$msprice,$expiryDate);
     if($stmt->execute()){
         //success

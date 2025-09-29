@@ -111,7 +111,7 @@ addEventListener("DOMContentLoaded",()=>{
             let mapedData = `<option value="" selected>--select--</option>`;
             mapedData += result.message.map(items=>{
                 return `
-                <option value="${items.productunid}" >${items.productName}</option>
+                <option value="${items.productunid}" >${items.ProductName}</option>
                 `;
             }).join("");
             //console.log(mapedData);

@@ -149,7 +149,7 @@
                 <!--cash-->
                 <input type="text" id="cashPayment" value="0" placeholder="cash" class="hidden border-none px-2 py-2 rounded-lg outline-none">
             </div>
-            <p id="paymentError" class="px-2">Total error</p>
+            <p id="paymentError" class="px-2"></p>
         </div>
         <div class="w-full text-center">
             <button id="AddSalesBtn" class="bg-blue-500 py-2 px-3 text-white rounded-xl hover:scale-105">New sales</button>

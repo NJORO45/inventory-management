@@ -24,7 +24,6 @@ async function getProductsName() {
         const text = await response.text();
         try{
             const result = JSON.parse(text);
-            //console.log(result);
             if(result.success){
                 if(result.message.length==0){
             
@@ -37,7 +36,7 @@ async function getProductsName() {
                     let mapedData = result.message.map(items=>{
                         return `
                         <tr class="hover:bg-slate-50">
-                            <td class="bg-white sticky left-0 z-10 w-40 px-4 py-2 border-r border-slate-200 whitespace-nowrap">${items['productName']}</td>
+                            <td class="bg-white sticky left-0 z-10 w-40 px-4 py-2 border-r border-slate-200 whitespace-nowrap">${items['ProductName']}</td>
                             <td class="px-4 py-2 text-left">${items['productunid']}</td>
                             <td class="px-4 py-2 text-left">${items['dateAdded']}</td>
 
@@ -94,7 +93,7 @@ addEventListener("DOMContentLoaded",()=>{
 
     setInterval(()=>{
         getProductsName(productPrevName);
-    },5000);
+    },2000);
     EditmodalClose.addEventListener("click",()=>{
         editpopupModal.classList.add('hidden');
     });
